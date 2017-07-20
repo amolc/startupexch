@@ -27,3 +27,9 @@ default-image-converter   : gm
 
 // Default theme
 default-theme             : default
+
+// Mysql Connection
+mysql-host                : localhost
+mysql-user                : root
+mysql-password            : lamp
+mysql-database            : startupexchange

@@ -2,7 +2,7 @@
 
 exports.install = function() {
 	// COMMON
-	F.route('/api/ping/',              json_ping);
+	F.route('/api/ping/',              json_ping , ['post']);
 
 	// COMMENTS
 	F.route('/api/comments/{id}/',     json_comments_query, ['*Comment']);
@@ -23,7 +23,14 @@ exports.install = function() {
 // ==========================================================================
 
 function json_ping() {
+
 	var self = this;
+	var User = MODEL('client');
+	sql.select('*', 'users').make(function(builder) {
+		builder.where('id', '>', 5);
+		builder.page(10, 10);
+	});
+
 	self.plain('null');
 }
 
@@ -64,4 +71,40 @@ function json_comments_save() {
 function json_save() {
 	var self = this;
 	self.body.$save(self.callback());
+}
+
+function view_index() {
+
+	var self = this;
+
+	// definitions/mysql.js
+	// create a DB connection
+	//DB(function(err, connection){
+    //
+	//	if(err != null) {
+	//		self.throw500(err);
+	//		return;
+	//	}
+    //
+	//	// Table schema = { Id: Number, Age: Number, Name: String };
+	//	connection.query('SELECT * FROM users', function(err, rows) {
+    //
+	//		// Close connection
+	//		connection.release();
+    //
+	//		if (err != null) {
+	//			self.view500(err);
+	//			return;
+	//		}
+    //
+	//		// Shows the result on a console window
+	//		console.log(rows);
+    //
+	//		// Send rows as the model into the view
+	//		//self.view('index', rows);
+	//		self.plain('null');
+    //
+	//	});
+    //
+	//});
 }

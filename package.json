@@ -4,8 +4,11 @@
   "version": "1.0.0",
   "main": "release.js",
   "dependencies": {
-    "total.js": "latest",
-    "marked": "latest"
+    "marked": "latest",
+    "mysql": "^2.13.0",
+    "sequelize": "^4.3.2",
+    "sqlagent": "^9.9.3",
+    "total.js": "latest"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
