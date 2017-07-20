@@ -24,12 +24,12 @@ var Agent = require('sqlagent/mysql').connect({
 var sql = new Agent();
 
 
-//var pool = mysql.createPool({
-//    host: mysql_host,
-//    user: mysql_user,
-//    password: mysql_password,
-//    database: mysql_database
-//});
+var pool = mysql.createPool({
+    host: mysql_host,
+    user: mysql_user,
+    password: mysql_password,
+    database: mysql_database
+});
 
 //var sequelize_connetor  = new Sequelize(mysql_database, mysql_user, mysql_password, {
 //    host: mysql_host,
@@ -45,7 +45,7 @@ var sql = new Agent();
 // override the framework prototype
 // use CONFIG files for connection string
 //F.database = sequelize_connetor;
-//F.database = function(callback) {
-//    return pool.getConnection(callback);
-//};
+F.database = function(callback) {
+    return pool.getConnection(callback);
+};
 
