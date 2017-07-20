@@ -29,7 +29,12 @@ default-image-converter   : gm
 default-theme             : default
 
 // Mysql Connection
-mysql-host                : localhost
-mysql-user                : root
-mysql-password            : lamp
+//mysql-host                : localhost
+//mysql-user                : root
+//mysql-password            : lamp
+//mysql-database            : startupexchange
+
+mysql-host                : atlanta.fountaintechies.com
+mysql-user                : ftdev
+mysql-password            : 10gXWOqeaf
 mysql-database            : startupexchange
